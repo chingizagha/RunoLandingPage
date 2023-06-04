@@ -1,0 +1,18 @@
+﻿@model Request
+
+<div class="card w-100 mt-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">Id: @Model.Id</p>
+        <p class="card-text">Surname: @Model.Surname</p>
+        <p class="card-text">Company Name: @Model.Company</p>
+        <p class="card-text">Email: @Model.Email</p>
+       
+        <a asp-controller="Request" asp-action="List" class="btn btn-primary">Back to List</a>
+
+        <form asp-controller="Request" asp-action="Remove" asp-route-id="@Model.Id" class="d-inline"
+              onclick="return confirm('Are you sure you want to delete @Model.Name?')">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
+    </div>
+</div>
